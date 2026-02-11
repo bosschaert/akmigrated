@@ -1,0 +1,48 @@
+/* Base Block - Footer Copyright Bar */
+.base {
+  /* Design tokens extracted from source */
+  --base-bg: rgb(23, 36, 56);
+  --base-text: rgb(115, 122, 132);
+  --base-link: rgb(199, 202, 206);
+  --base-font-family: Arial, Helvetica, sans-serif;
+  --base-font-size: 12px;
+  --base-height: 36px;
+  --base-padding: 0 15px;
+
+  background-color: var(--base-bg);
+  color: var(--base-text);
+  font-family: var(--base-font-family);
+  font-size: var(--base-font-size);
+  height: var(--base-height);
+  padding: var(--base-padding);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.base .base-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.base .base-credit {
+  text-align: left;
+}
+
+.base .base-powered {
+  text-align: right;
+}
+
+.base a {
+  color: var(--base-link);
+  text-decoration: none;
+}
+
+.base a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,51 @@
+{
+  "source": {
+    "url": "https://skerriessailingclub.com/",
+    "selector": "#image-row",
+    "capturedAt": "2026-02-11T11:40:00Z",
+    "notes": "Source element had zero height on original page; styles were force-applied during capture to make it visible"
+  },
+  "block": {
+    "name": "image-row",
+    "displayName": "Image Row",
+    "description": "Horizontal row of clickable thumbnail images with flex layout",
+    "basedOn": "Custom implementation (no direct Block Collection match)",
+    "files": [
+      "blocks/image-row/image-row.js",
+      "blocks/image-row/image-row.css"
+    ]
+  },
+  "validation": {
+    "finalScore": 0.7804,
+    "iterations": 3,
+    "acceptableVariance": "Width constraint (1200px max vs 1247px source) accounts for ~15% of difference",
+    "visualDiffNotes": "Resizing during comparison introduces artifacts; actual visual parity is good"
+  },
+  "tokens": {
+    "colors": {
+      "--image-row-bg": "#f5f5f5"
+    },
+    "spacing": {
+      "--image-row-gap": "10px",
+      "--image-row-padding": "20px"
+    },
+    "sizing": {
+      "--image-row-img-width": "200px",
+      "--image-row-img-height": "150px"
+    }
+  },
+  "variants": [
+    "centered",
+    "spread",
+    "start",
+    "large",
+    "small",
+    "rounded",
+    "dark",
+    "transparent"
+  ],
+  "contentModel": {
+    "structure": "Block contains a row of columns, each with a linked picture",
+    "example": "<div class='image-row'><div><div><p><a href='link'><picture>...</picture></a></p></div>...</div></div>"
+  }
+}

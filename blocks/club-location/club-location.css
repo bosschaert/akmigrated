@@ -1,0 +1,44 @@
+/* Club Location Block Styles */
+/* Design tokens extracted from source */
+:root {
+  --club-location-height: 475px;
+  --club-location-bg: transparent;
+  --club-location-border-radius: 0;
+}
+
+.club-location {
+  width: 100%;
+  max-width: 100%;
+  background: var(--club-location-bg);
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.club-location-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.club-location-container iframe {
+  display: block;
+  width: 100%;
+  height: var(--club-location-height);
+  border: 0;
+  border-radius: var(--club-location-border-radius);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .club-location-container iframe {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .club-location-container iframe {
+    height: 300px;
+  }
+}

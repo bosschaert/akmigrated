@@ -1,0 +1,123 @@
+/**
+ * Image Row Block Styles
+ * Horizontal gallery of clickable thumbnail images
+ */
+
+.image-row {
+  /* Design tokens extracted from source */
+  --image-row-bg: #f5f5f5;
+  --image-row-gap: 10px;
+  --image-row-padding: 20px;
+  --image-row-img-width: 200px;
+  --image-row-img-height: 150px;
+  --image-row-border-radius: 0;
+
+  background-color: var(--image-row-bg);
+  padding: var(--image-row-padding);
+  /* Allow full width within section constraints */
+  max-width: none;
+  box-sizing: border-box;
+}
+
+.image-row .image-row-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--image-row-gap);
+  justify-content: center;
+  align-items: center;
+}
+
+.image-row .image-row-item {
+  flex: 0 0 auto;
+}
+
+/* Reset paragraph margins inside items */
+.image-row .image-row-item p {
+  margin: 0;
+}
+
+.image-row .image-row-link {
+  display: block;
+  text-decoration: none;
+  line-height: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.image-row .image-row-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+}
+
+.image-row .image-row-picture {
+  display: block;
+  line-height: 0;
+}
+
+.image-row .image-row-img {
+  display: block;
+  width: var(--image-row-img-width);
+  height: var(--image-row-img-height);
+  object-fit: cover;
+  border-radius: var(--image-row-border-radius);
+}
+
+/* Responsive adjustments */
+@media (width <= 768px) {
+  .image-row {
+    --image-row-img-width: 150px;
+    --image-row-img-height: 112px;
+    --image-row-gap: 8px;
+    --image-row-padding: 16px;
+  }
+}
+
+@media (width <= 480px) {
+  .image-row {
+    --image-row-img-width: 120px;
+    --image-row-img-height: 90px;
+    --image-row-gap: 6px;
+    --image-row-padding: 12px;
+  }
+}
+
+/* Variant: centered (default) */
+.image-row.centered .image-row-container {
+  justify-content: center;
+}
+
+/* Variant: spread */
+.image-row.spread .image-row-container {
+  justify-content: space-between;
+}
+
+/* Variant: start */
+.image-row.start .image-row-container {
+  justify-content: flex-start;
+}
+
+/* Variant: large */
+.image-row.large {
+  --image-row-img-width: 300px;
+  --image-row-img-height: 225px;
+}
+
+/* Variant: small */
+.image-row.small {
+  --image-row-img-width: 150px;
+  --image-row-img-height: 112px;
+}
+
+/* Variant: rounded */
+.image-row.rounded {
+  --image-row-border-radius: 8px;
+}
+
+/* Variant: dark background */
+.image-row.dark {
+  --image-row-bg: #333;
+}
+
+/* Variant: transparent background */
+.image-row.transparent {
+  --image-row-bg: transparent;
+}
