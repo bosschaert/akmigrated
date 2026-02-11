@@ -1,0 +1,140 @@
+/* Tabs Section Block
+ * Design tokens extracted from source component
+ */
+
+.tabs-section {
+  /* Design tokens */
+  --tabs-section-bg: #f8f8f8;
+  --tabs-section-border-radius: 12px;
+  --tabs-section-padding: 16px;
+  --tabs-section-margin: 32px 0;
+  --tabs-section-text-color: #000;
+
+  /* Tab button tokens */
+  --tab-btn-active-color: #2196f3;
+  --tab-btn-inactive-color: #000;
+  --tab-btn-font-size: 16px;
+  --tab-btn-padding: 12px 24px;
+  --tab-btn-border-bottom: 3px solid transparent;
+
+  /* Card tokens */
+  --card-bg: #fff;
+  --card-border-radius: 8px;
+  --card-padding: 32px 24px;
+  --card-border: 1px solid #e0e0e0;
+  --card-image-size: 120px;
+  --card-name-font-size: 16px;
+  --card-name-font-weight: 700;
+  --card-desc-font-size: 16px;
+
+  /* Container styles */
+  background-color: var(--tabs-section-bg);
+  border-radius: var(--tabs-section-border-radius);
+  padding: var(--tabs-section-padding);
+  margin: var(--tabs-section-margin);
+  color: var(--tabs-section-text-color);
+}
+
+/* Tab buttons container */
+.tabs-section .tabs-section-buttons {
+  display: flex;
+  gap: 32px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+}
+
+/* Tab button styles */
+.tabs-section .tabs-section-buttons button {
+  background: transparent;
+  border: none;
+  border-bottom: var(--tab-btn-border-bottom);
+  padding: var(--tab-btn-padding);
+  font-size: var(--tab-btn-font-size);
+  font-family: inherit;
+  color: var(--tab-btn-inactive-color);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  margin-bottom: -1px;
+}
+
+.tabs-section .tabs-section-buttons button:hover {
+  color: var(--tab-btn-active-color);
+}
+
+.tabs-section .tabs-section-buttons button.active {
+  color: var(--tab-btn-active-color);
+  border-bottom-color: var(--tab-btn-active-color);
+}
+
+/* Tab content panels */
+.tabs-section .tabs-section-content {
+  display: none;
+}
+
+.tabs-section .tabs-section-content.active {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Team card styles */
+.tabs-section .team-card {
+  background-color: var(--card-bg);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  border: var(--card-border);
+  text-align: center;
+  flex: 1;
+  min-width: 300px;
+  max-width: 48%;
+}
+
+/* Card image wrapper */
+.tabs-section .team-card-image-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+/* Circular image */
+.tabs-section .team-card-image {
+  width: var(--card-image-size);
+  height: var(--card-image-size);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Card name */
+.tabs-section .team-card-name {
+  font-size: var(--card-name-font-size);
+  font-weight: var(--card-name-font-weight);
+  margin: 8px 0;
+  color: var(--tabs-section-text-color);
+}
+
+/* Card description */
+.tabs-section .team-card-description {
+  font-size: var(--card-desc-font-size);
+  color: var(--tabs-section-text-color);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tabs-section .tabs-section-content.active {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tabs-section .team-card {
+    max-width: 100%;
+  }
+
+  .tabs-section .tabs-section-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
