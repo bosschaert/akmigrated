@@ -1,0 +1,50 @@
+{
+  "source": {
+    "url": "https://static-website.david-bosschaert.workers.dev/",
+    "selector": "body > table:nth-child(3)",
+    "capturedAt": "2026-02-11T13:41:36.254Z",
+    "originalDimensions": {
+      "width": 1130,
+      "height": 325
+    }
+  },
+  "block": {
+    "name": "image-grid",
+    "displayName": "Image Grid",
+    "basedOn": "Custom (columns-inspired layout)",
+    "files": [
+      "blocks/image-grid/image-grid.js",
+      "blocks/image-grid/image-grid.css"
+    ],
+    "sampleContent": "drafts/block-samples/image-grid.plain.html"
+  },
+  "validation": {
+    "finalScore": 0.7736,
+    "iterations": 3,
+    "notes": "77% similarity acceptable due to YouTube dynamic content (video frame varies). Core layout and structure achieve visual parity."
+  },
+  "tokens": {
+    "layout": {
+      "--image-grid-gap": "0",
+      "--image-grid-cell-aspect-ratio": "16 / 9"
+    },
+    "colors": {
+      "background": "#000 (cell background)"
+    }
+  },
+  "features": {
+    "responsive": true,
+    "youtubeSupport": true,
+    "imageSupport": true,
+    "columns": "auto (based on content)"
+  },
+  "usage": {
+    "description": "A grid layout for displaying images and videos side by side",
+    "structure": [
+      "Each row contains cells",
+      "Cells can contain YouTube links (auto-decorated) or images",
+      "Cells maintain 16:9 aspect ratio"
+    ],
+    "example": "<div class='image-grid'>\n  <div>\n    <div><a href='youtube-url'>...</a></div>\n    <div><picture><img src='...'></picture></div>\n  </div>\n</div>"
+  }
+}

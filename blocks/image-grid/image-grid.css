@@ -1,0 +1,65 @@
+/* Image Grid Block
+ * A grid layout for displaying images and videos side by side
+ * Migrated from: https://static-website.david-bosschaert.workers.dev/
+ */
+
+.image-grid {
+  /* Design tokens extracted from source */
+  --image-grid-gap: 0;
+  --image-grid-cell-aspect-ratio: 16 / 9;
+  --image-grid-cell-max-width: 560px;
+
+  display: grid;
+  gap: var(--image-grid-gap);
+  width: 100%;
+}
+
+.image-grid-row {
+  display: grid;
+  gap: var(--image-grid-gap);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .image-grid-row {
+    grid-template-columns: repeat(var(--cell-count, 2), 1fr);
+  }
+}
+
+.image-grid-cell {
+  position: relative;
+  aspect-ratio: var(--image-grid-cell-aspect-ratio);
+  overflow: hidden;
+  background-color: #000;
+}
+
+/* Image cell styling */
+.image-grid-cell.image-cell picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.image-grid-cell.image-cell img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Video cell styling - works with YouTube block */
+.image-grid-cell .video {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 0;
+  position: absolute;
+  inset: 0;
+}
+
+.image-grid-cell .video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
