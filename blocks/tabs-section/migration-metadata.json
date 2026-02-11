@@ -1,0 +1,56 @@
+{
+  "source": {
+    "url": "https://static-website.david-bosschaert.workers.dev/",
+    "selector": "body > div.tabs-section",
+    "capturedAt": "2026-02-11T17:15:14.669Z"
+  },
+  "block": {
+    "name": "tabs-section",
+    "basedOn": "Custom tabs implementation with team cards",
+    "files": [
+      "blocks/tabs-section/tabs-section.js",
+      "blocks/tabs-section/tabs-section.css"
+    ]
+  },
+  "validation": {
+    "finalScore": 0.955,
+    "iterations": 1,
+    "status": "PASS"
+  },
+  "tokens": {
+    "colors": [
+      "--tabs-section-bg: #f8f8f8",
+      "--tabs-section-text-color: #000",
+      "--tab-btn-active-color: #2196f3",
+      "--tab-btn-inactive-color: #000",
+      "--card-bg: #fff",
+      "--card-border: 1px solid #e0e0e0"
+    ],
+    "spacing": [
+      "--tabs-section-padding: 16px",
+      "--tabs-section-margin: 32px 0",
+      "--tabs-section-border-radius: 12px",
+      "--card-padding: 32px 24px",
+      "--card-border-radius: 8px",
+      "--tab-btn-padding: 12px 24px"
+    ],
+    "typography": [
+      "--tab-btn-font-size: 16px",
+      "--card-name-font-size: 16px",
+      "--card-name-font-weight: 700",
+      "--card-desc-font-size: 16px"
+    ],
+    "images": [
+      "--card-image-size: 120px (circular)"
+    ]
+  },
+  "contentModel": {
+    "description": "Tabbed interface with team member cards",
+    "structure": [
+      "Row 1: Tab labels (one per column)",
+      "Row 2+: Tab content panels with team cards",
+      "Each card: image + h4 heading + paragraph description"
+    ]
+  },
+  "sampleContent": "drafts/block-samples/tabs-section.plain.html"
+}

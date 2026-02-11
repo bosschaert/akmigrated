@@ -67,7 +67,7 @@
   border-bottom-color: var(--tab-btn-active-color);
 }
 
-/* Tab content panels */
+/* Tab content panels - hide all by default after decoration */
 .tabs-section .tabs-section-content {
   display: none;
 }
@@ -77,6 +77,81 @@
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* Raw HTML fallback - style direct children before JS decoration */
+/* First child is tab labels, subsequent children are content panels */
+.tabs-section > div:first-child {
+  display: flex;
+  gap: 32px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.tabs-section > div:first-child > div {
+  padding: var(--tab-btn-padding);
+  font-size: var(--tab-btn-font-size);
+  color: var(--tab-btn-inactive-color);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+}
+
+.tabs-section > div:first-child > div:first-child {
+  color: var(--tab-btn-active-color);
+  border-bottom-color: var(--tab-btn-active-color);
+}
+
+/* Content panels before decoration - show first content panel */
+.tabs-section > div:nth-child(n+2) {
+  display: none;
+}
+
+.tabs-section > div:nth-child(2) {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Raw card styling before decoration */
+.tabs-section > div:nth-child(n+2) > div {
+  background-color: var(--card-bg);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  border: var(--card-border);
+  text-align: center;
+  flex: 1;
+  min-width: 300px;
+  max-width: 48%;
+}
+
+.tabs-section > div:nth-child(n+2) > div img {
+  width: var(--card-image-size);
+  height: var(--card-image-size);
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 16px;
+}
+
+.tabs-section > div:nth-child(n+2) > div h4 {
+  font-size: var(--card-name-font-size);
+  font-weight: var(--card-name-font-weight);
+  margin: 8px 0;
+}
+
+.tabs-section > div:nth-child(n+2) > div p {
+  font-size: var(--card-desc-font-size);
+  line-height: 1.5;
+  margin: 8px 0;
+}
+
+/* Hide decorated elements from raw styling */
+.tabs-section.block > div:first-child,
+.tabs-section.block > div:nth-child(n+2) {
+  display: none;
 }
 
 /* Team card styles */
