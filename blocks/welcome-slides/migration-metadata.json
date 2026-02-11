@@ -1,0 +1,43 @@
+{
+  "source": {
+    "url": "https://skerriessailingclub.com/",
+    "selector": "#welcome-slides",
+    "capturedAt": "2026-02-11T12:18:18.568Z"
+  },
+  "block": {
+    "name": "welcome-slides",
+    "basedOn": "Adobe Block Collection carousel pattern",
+    "files": [
+      "blocks/welcome-slides/welcome-slides.js",
+      "blocks/welcome-slides/welcome-slides.css"
+    ]
+  },
+  "validation": {
+    "finalScore": 1.0,
+    "similarityPercent": 100,
+    "iterations": 2
+  },
+  "tokens": {
+    "dimensions": {
+      "--welcome-slides-height": "483px",
+      "--welcome-slides-max-width": "1236px"
+    },
+    "navigation": {
+      "--welcome-slides-indicator-size": "12px",
+      "--welcome-slides-indicator-gap": "8px",
+      "--welcome-slides-nav-size": "48px"
+    },
+    "animation": {
+      "--welcome-slides-transition": "0.5s ease-in-out"
+    }
+  },
+  "features": [
+    "Auto-play slideshow with 5-second interval",
+    "Previous/Next navigation buttons",
+    "Slide indicators",
+    "Pause on hover",
+    "Accessible ARIA attributes",
+    "Responsive height adjustments"
+  ],
+  "sampleContent": "drafts/block-samples/welcome-slides.plain.html"
+}

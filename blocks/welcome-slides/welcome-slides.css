@@ -13,6 +13,13 @@
   --welcome-slides-transition: 0.5s ease-in-out;
 }
 
+/* Override parent container constraints for full-width slides */
+.block-content:has(.welcome-slides) {
+  max-width: var(--welcome-slides-max-width);
+  padding: 0;
+  margin: 0 auto;
+}
+
 /* Block container */
 .welcome-slides {
   position: relative;
@@ -46,7 +53,7 @@
 .welcome-slides > div > div img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   display: block;
 }
 
@@ -87,7 +94,7 @@
 .welcome-slides-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   display: block;
 }
 
