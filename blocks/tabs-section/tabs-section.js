@@ -56,10 +56,17 @@ export default function decorate(block) {
 
       const cardCols = [...cardDiv.children];
       if (cardCols.length >= 2) {
-        // First column: image
+        // First column: image (may be wrapped in picture element)
         const imgCol = cardCols[0];
+        const picture = imgCol.querySelector('picture');
         const img = imgCol.querySelector('img');
-        if (img) {
+
+        if (picture) {
+          const imgWrapper = document.createElement('div');
+          imgWrapper.className = 'card-image';
+          imgWrapper.appendChild(picture.cloneNode(true));
+          card.appendChild(imgWrapper);
+        } else if (img) {
           const imgWrapper = document.createElement('div');
           imgWrapper.className = 'card-image';
           imgWrapper.appendChild(img.cloneNode(true));
@@ -71,7 +78,7 @@ export default function decorate(block) {
         const textWrapper = document.createElement('div');
         textWrapper.className = 'card-text';
 
-        const heading = textCol.querySelector('h4, h3, h2, p strong');
+        const heading = textCol.querySelector('h4, h3, h2');
         if (heading) {
           const name = document.createElement('h4');
           name.textContent = heading.textContent;
@@ -80,17 +87,17 @@ export default function decorate(block) {
 
         const paragraphs = textCol.querySelectorAll('p');
         paragraphs.forEach((p) => {
-          if (!p.querySelector('strong') || paragraphs.length > 1) {
-            const desc = document.createElement('p');
-            desc.textContent = p.textContent;
-            textWrapper.appendChild(desc);
-          }
+          const desc = document.createElement('p');
+          desc.textContent = p.textContent;
+          textWrapper.appendChild(desc);
         });
 
         card.appendChild(textWrapper);
       }
 
-      cardsContainer.appendChild(card);
+      if (card.children.length > 0) {
+        cardsContainer.appendChild(card);
+      }
     });
 
     contentPanel.appendChild(cardsContainer);

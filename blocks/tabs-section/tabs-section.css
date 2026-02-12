@@ -106,7 +106,13 @@
   margin-bottom: 16px;
 }
 
-.tabs-section .card-image img {
+.tabs-section .card-image picture {
+  display: flex;
+  justify-content: center;
+}
+
+.tabs-section .card-image img,
+.tabs-section .card-image picture img {
   width: var(--card-image-size);
   height: var(--card-image-size);
   border-radius: 50%;
