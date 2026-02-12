@@ -1,0 +1,147 @@
+/* Tabs Section Block
+ * Design tokens extracted from source component
+ */
+
+.tabs-section {
+  /* Container tokens */
+  --tabs-bg: rgb(248, 248, 248);
+  --tabs-padding: 16px;
+  --tabs-margin: 32px 0;
+  --tabs-border-radius: 12px;
+  --tabs-text-color: rgb(0, 0, 0);
+
+  /* Tab button tokens - text style with underline */
+  --tab-btn-color: rgb(0, 0, 0);
+  --tab-btn-color-active: rgb(74, 144, 226);
+  --tab-btn-padding: 12px 24px;
+
+  /* Card tokens */
+  --card-image-size: 120px;
+  --card-gap: 16px;
+  --card-heading-size: 16px;
+  --card-heading-weight: 700;
+  --card-text-margin: 16px 0;
+  --card-border-radius: 12px;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --card-border: 1px solid rgba(0, 0, 0, 0.08);
+
+  background-color: var(--tabs-bg);
+  padding: var(--tabs-padding);
+  margin: var(--tabs-margin);
+  border-radius: var(--tabs-border-radius);
+  color: var(--tabs-text-color);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Tab buttons container */
+.tabs-section .tab-buttons {
+  display: flex;
+  gap: 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tabs-section .tab-buttons button {
+  background-color: transparent;
+  color: var(--tab-btn-color);
+  border: none;
+  padding: var(--tab-btn-padding);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  margin-bottom: -1px;
+}
+
+.tabs-section .tab-buttons button:hover {
+  color: var(--tab-btn-color-active);
+}
+
+.tabs-section .tab-buttons button.active {
+  color: var(--tab-btn-color-active);
+  border-bottom-color: var(--tab-btn-color-active);
+}
+
+/* Tab panels container */
+.tabs-section .tab-panels {
+  padding: 8px 0;
+}
+
+/* Tab content panels */
+.tabs-section .tab-content {
+  display: none;
+}
+
+.tabs-section .tab-content.active {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--card-gap);
+  justify-content: flex-start;
+}
+
+/* Team cards */
+.tabs-section .team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: calc(50% - var(--card-gap) / 2);
+  min-width: 250px;
+  background-color: white;
+  border-radius: var(--card-border-radius);
+  border: var(--card-border);
+  box-shadow: var(--card-shadow);
+  padding: 20px 24px;
+  box-sizing: border-box;
+}
+
+.tabs-section .team-card .card-image {
+  width: var(--card-image-size);
+  height: var(--card-image-size);
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.tabs-section .team-card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tabs-section .team-card h4 {
+  font-size: var(--card-heading-size);
+  font-weight: var(--card-heading-weight);
+  margin: 3.2px 0;
+  color: var(--tabs-text-color);
+}
+
+.tabs-section .team-card p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 8px 0 0;
+  color: var(--tabs-text-color);
+  max-width: 400px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tabs-section .tab-buttons {
+    flex-wrap: wrap;
+  }
+
+  .tabs-section .tab-buttons button {
+    flex: 1;
+    min-width: 100px;
+  }
+
+  .tabs-section .tab-content.active {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tabs-section .team-card {
+    width: 100%;
+  }
+}
