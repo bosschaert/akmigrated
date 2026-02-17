@@ -1,12 +1,4 @@
 @font-face {
-  font-family: "Playfair Display";
-  src: url('/fonts/playfair-display-600-normal.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: Poppins;
   src: url('/fonts/poppins-400-normal.woff2') format('woff2');
   font-weight: 400;
@@ -18,6 +10,14 @@
   font-family: Poppins;
   src: url('/fonts/poppins-500-normal.woff2') format('woff2');
   font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url('/fonts/playfair-display-600-normal.woff2') format('woff2');
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
