@@ -1,0 +1,61 @@
+/* Image Grid Block */
+.image-grid {
+  --image-grid-gap: 32px;
+  --image-grid-border-radius: 8px;
+  --image-grid-tint-color: rgba(255, 190, 210, 0.2);
+  --image-grid-max-width: 1200px;
+
+  display: grid;
+  gap: var(--image-grid-gap);
+  max-width: var(--image-grid-max-width);
+  margin: 24px auto;
+  padding: 27px 0;
+
+  .row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--image-grid-gap);
+  }
+
+  .col {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--image-grid-border-radius);
+  }
+
+  /* Pink tint overlay on images */
+  .col::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--image-grid-tint-color);
+    pointer-events: none;
+    border-radius: var(--image-grid-border-radius);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--image-grid-border-radius);
+  }
+
+  picture {
+    display: block;
+    line-height: 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .image-grid {
+    .row {
+      grid-template-columns: 1fr;
+    }
+  }
+}

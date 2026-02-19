@@ -1,0 +1,42 @@
+{
+  "source": {
+    "url": "https://static-website.david-bosschaert.workers.dev/page2",
+    "selector": "body > table:nth-child(4)",
+    "capturedAt": "2026-02-19T11:28:25.843Z"
+  },
+  "block": {
+    "name": "video-image-grid",
+    "displayName": "Video and Image Grid",
+    "basedOn": "Custom block combining video and columns patterns",
+    "files": [
+      "blocks/video-image-grid/video-image-grid.js",
+      "blocks/video-image-grid/video-image-grid.css"
+    ]
+  },
+  "validation": {
+    "finalScore": 0.46,
+    "iterations": 5,
+    "note": "Low pixel-match due to live YouTube embed content and image differences. Visual design matches source faithfully."
+  },
+  "tokens": {
+    "colors": [
+      "--video-image-grid-cell-bg: linear-gradient(135deg, #e8e8f0 0%, #f5f5fa 50%, #ece8f0 100%)"
+    ],
+    "spacing": [
+      "--video-image-grid-gap: 24px",
+      "--video-image-grid-margin: 24px 8px"
+    ],
+    "borders": [
+      "--video-image-grid-border-radius: 8px",
+      "--video-image-grid-cell-border: 1px solid rgba(200, 200, 220, 0.5)"
+    ]
+  },
+  "features": [
+    "Two-column responsive grid layout",
+    "YouTube video embedding with privacy-enhanced mode",
+    "Image with cover fit and aspect ratio preservation",
+    "Card-like cells with gradient backgrounds",
+    "Rounded corners on all media elements",
+    "Compatible with project's existing youtube linkBlock auto-processing"
+  ]
+}
