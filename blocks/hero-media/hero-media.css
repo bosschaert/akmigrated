@@ -1,0 +1,93 @@
+/* Hero Media Block
+ * Displays two media items (video + image) side by side with rounded corners
+ * Migrated from: https://static-website.david-bosschaert.workers.dev/page2
+ */
+
+.hero-media {
+  /* Design tokens extracted from source */
+  --hero-media-gap: 24px;
+  --hero-media-border-radius: 8px;
+  --hero-media-bg: transparent;
+  --hero-media-padding: 0;
+
+  display: block;
+  background: var(--hero-media-bg);
+  padding: var(--hero-media-padding);
+}
+
+.hero-media-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hero-media-gap);
+  align-items: stretch;
+}
+
+.hero-media-col {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Remove default paragraph margins */
+.hero-media-col p {
+  margin: 0;
+}
+
+/* Video container styling */
+.hero-media-col .video {
+  width: 100%;
+  height: 0;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+  border-radius: var(--hero-media-border-radius);
+}
+
+.hero-media-col .video iframe {
+  border: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: var(--hero-media-border-radius);
+}
+
+/* Image styling */
+.hero-media-col img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--hero-media-border-radius);
+  object-fit: cover;
+}
+
+/* Desktop layout - side by side with 1:2 ratio matching source */
+@media (min-width: 900px) {
+  .hero-media-row {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  /* Video column - smaller (1/3 of space) */
+  .hero-media-col.col-1 {
+    flex: 1 1 0;
+    max-width: 280px;
+  }
+
+  /* Image column - larger (2/3 of space) */
+  .hero-media-col.col-2 {
+    flex: 2 1 0;
+  }
+
+  /* Match the source aspect ratios */
+  .hero-media-col .video {
+    padding-bottom: 56.25%;
+  }
+
+  .hero-media-col img {
+    aspect-ratio: 800 / 600;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
+}

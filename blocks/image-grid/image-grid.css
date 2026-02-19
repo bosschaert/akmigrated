@@ -1,0 +1,63 @@
+/* Image Grid Block */
+/* Design tokens extracted from source */
+.image-grid {
+  --image-grid-gap: 94px;
+  --image-grid-border-radius: 8px;
+  --image-grid-max-width: 1152px;
+  --image-grid-image-width: 528px;
+  --image-grid-image-height: 297px;
+  --image-grid-padding: 18px 0;
+
+  display: flex;
+  flex-direction: column;
+  max-width: var(--image-grid-max-width);
+  margin: 0 auto;
+  padding: var(--image-grid-padding);
+}
+
+.image-grid .image-grid-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--image-grid-gap);
+  justify-content: center;
+}
+
+.image-grid .image-grid-col {
+  flex: 0 0 var(--image-grid-image-width);
+}
+
+.image-grid .image-grid-col p {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.image-grid .image-grid-col picture {
+  display: block;
+}
+
+.image-grid .image-grid-img,
+.image-grid .image-grid-col img {
+  width: var(--image-grid-image-width);
+  height: var(--image-grid-image-height);
+  border-radius: var(--image-grid-border-radius);
+  display: block;
+  object-fit: fill;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .image-grid {
+    --image-grid-gap: 24px;
+  }
+
+  .image-grid .image-grid-col {
+    flex: 1 1 100%;
+  }
+
+  .image-grid .image-grid-col img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}
