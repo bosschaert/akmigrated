@@ -1,0 +1,54 @@
+/* Image Pair Block
+ * Displays two images side by side with rounded corners and subtle shadow
+ * Design tokens extracted from source component
+ */
+
+.image-pair {
+  /* Design tokens */
+  --image-pair-bg: #fff5f8;
+  --image-pair-padding: 42px 56px;
+  --image-pair-gap: 48px;
+  --image-pair-border-radius: 8px;
+  --image-pair-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --image-pair-max-width: 1200px;
+
+  display: flex;
+  justify-content: center;
+  background-color: var(--image-pair-bg);
+  padding: var(--image-pair-padding);
+  margin: 24px 8px;
+  max-width: var(--image-pair-max-width);
+  box-sizing: border-box;
+}
+
+.image-pair .image-pair-row {
+  display: flex;
+  gap: var(--image-pair-gap);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.image-pair .image-pair-item {
+  flex: 0 1 auto;
+}
+
+.image-pair .image-pair-item p {
+  margin: 0;
+}
+
+.image-pair .image-pair-item img {
+  display: block;
+  border-radius: var(--image-pair-border-radius);
+  box-shadow: var(--image-pair-shadow);
+  width: 528px;
+  height: 297px;
+  object-fit: cover;
+}
+
+@media (width >= 900px) {
+  .image-pair .image-pair-row {
+    flex-wrap: nowrap;
+  }
+}
