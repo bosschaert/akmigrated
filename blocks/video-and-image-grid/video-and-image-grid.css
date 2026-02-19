@@ -1,0 +1,156 @@
+/* Video and Image Grid Block */
+.video-and-image-grid-wrapper {
+  width: 100%;
+  background: linear-gradient(180deg, #e8e0f0 0%, #f0e8f5 50%, #e8f0f5 100%);
+  padding: 40px 0;
+}
+
+.video-and-image-grid {
+  /* Design tokens extracted from source */
+  --grid-max-width: 1200px;
+  --grid-margin: 0 auto;
+  --grid-gap: 16px;
+  --grid-border-radius: 14px;
+  --grid-cell-height: 420px;
+  --card-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  --card-bg: #ffffff;
+  --gradient-bg: linear-gradient(180deg, #ebe4f2 0%, #f5f0f8 50%, #f0f5f9 100%);
+
+  max-width: var(--grid-max-width);
+  margin: var(--grid-margin);
+  padding: 40px 8px;
+  display: block;
+  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
+  box-sizing: border-box;
+  background: var(--gradient-bg);
+}
+
+/* Pre-decoration: direct children are rows */
+.video-and-image-grid > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--grid-gap);
+  margin-bottom: var(--grid-gap);
+}
+
+.video-and-image-grid > div:last-child {
+  margin-bottom: 0;
+}
+
+/* Pre-decoration: row children are cells */
+.video-and-image-grid > div > div {
+  flex: 1 1 calc(50% - var(--grid-gap) / 2);
+  min-width: 280px;
+  height: var(--grid-cell-height);
+  overflow: hidden;
+  border-radius: var(--grid-border-radius);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+}
+
+/* First cell (video) is narrower */
+.video-and-image-grid > div > div:first-child {
+  flex: 0 0 32%;
+  max-width: 380px;
+}
+
+/* Second cell (image) takes remaining space */
+.video-and-image-grid > div > div:last-child {
+  flex: 1 1 auto;
+}
+
+/* Post-decoration row styling */
+.video-and-image-grid-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--grid-gap);
+  margin-bottom: var(--grid-gap);
+}
+
+.video-and-image-grid-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Post-decoration cell styling */
+.video-and-image-grid-cell {
+  flex: 1 1 calc(50% - var(--grid-gap) / 2);
+  min-width: 280px;
+  height: var(--grid-cell-height);
+  overflow: hidden;
+  border-radius: var(--grid-border-radius);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+}
+
+/* First cell (video) is narrower */
+.video-and-image-grid-cell:first-child {
+  flex: 0 0 32%;
+  max-width: 380px;
+}
+
+/* Last cell (image) takes remaining space */
+.video-and-image-grid-cell:last-child {
+  flex: 1 1 auto;
+}
+
+/* Video embed styling (ak.js creates .video div with iframe) */
+.video-and-image-grid-cell .video {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: var(--card-bg);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.video-and-image-grid-cell .video iframe {
+  width: 260px;
+  height: 175px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Image styling for pre-decoration */
+.video-and-image-grid > div > div picture,
+.video-and-image-grid > div > div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--grid-border-radius);
+}
+
+/* Image cell styling */
+.video-and-image-grid-cell.image-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+.video-and-image-grid-cell.image-cell picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.video-and-image-grid-cell.image-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--grid-border-radius);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .video-and-image-grid {
+    --grid-gap: 16px;
+  }
+
+  .video-and-image-grid-cell {
+    flex: 1 1 100%;
+  }
+}
