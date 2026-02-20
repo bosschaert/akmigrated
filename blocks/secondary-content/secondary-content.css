@@ -1,0 +1,48 @@
+/* Secondary Content Block — two images side by side with rounded corners */
+
+.secondary-content {
+  --sc-img-radius: 8px;
+
+  display: block;
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 42px 0;
+  box-sizing: border-box;
+  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
+}
+
+.secondary-content .secondary-content-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondary-content .secondary-content-col {
+  flex: 0 0 50%;
+  max-width: 50%;
+  box-sizing: border-box;
+  padding: 0 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondary-content .secondary-content-col p {
+  margin: 0;
+  line-height: 0;
+}
+
+.secondary-content .secondary-content-col picture {
+  display: block;
+  line-height: 0;
+  width: 100%;
+}
+
+.secondary-content .secondary-content-col img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 528 / 297;
+  object-fit: fill;
+  border-radius: var(--sc-img-radius);
+  display: block;
+}

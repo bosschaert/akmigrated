@@ -1,0 +1,124 @@
+/* Team Section Block — Tabbed team members */
+.team-section {
+  --ts-bg: #f8f8f8;
+  --ts-text: #333;
+  --ts-accent: #5e35b1;
+  --ts-tab-active: #1e88e5;
+  --ts-border: #d3d3d3;
+  --ts-card-bg: #fff;
+  --ts-card-radius: 12px;
+  --ts-avatar-size: 120px;
+  --ts-font-family: Poppins, "Segoe UI", system-ui, sans-serif;
+  --ts-heading-size: 16px;
+  --ts-body-size: 18.4px;
+  --ts-heading-weight: 700;
+  --ts-line-height: 1.6;
+  --ts-padding: 16px;
+  --ts-gap: 16px;
+
+  background-color: var(--ts-bg);
+  border-radius: var(--ts-card-radius);
+  padding: var(--ts-padding);
+  margin: 32px auto;
+  font-family: var(--ts-font-family);
+  color: var(--ts-text);
+  max-width: 95%;
+  box-sizing: border-box;
+}
+
+/* Tab list */
+.team-section .tab-list {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--ts-border);
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.team-section .tab-list button {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-family: var(--ts-font-family);
+  font-size: var(--ts-heading-size);
+  font-weight: 600;
+  color: var(--ts-text);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  margin-bottom: -1px;
+}
+
+.team-section .tab-list button:hover {
+  color: var(--ts-tab-active);
+}
+
+.team-section .tab-list button.active {
+  color: var(--ts-tab-active);
+  border-bottom-color: var(--ts-tab-active);
+}
+
+/* Tab panels */
+.team-section .tab-panels {
+  width: 100%;
+}
+
+.team-section .tab-panel {
+  display: none;
+}
+
+.team-section .tab-panel.active {
+  display: flex;
+  gap: var(--ts-gap);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Team cards */
+.team-section .team-card {
+  flex: 1 1 calc(50% - var(--ts-gap));
+  max-width: calc(50% - var(--ts-gap) / 2);
+  min-width: 280px;
+  background: var(--ts-card-bg);
+  border: 1px dashed var(--ts-border);
+  border-radius: var(--ts-card-radius);
+  padding: 30px 16px 36px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Avatar images — override global img styles */
+.team-section .team-card img,
+.team-section .team-card picture img {
+  width: var(--ts-avatar-size) !important;
+  height: var(--ts-avatar-size) !important;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 8px;
+}
+
+.team-section .team-card picture {
+  display: flex;
+  justify-content: center;
+}
+
+/* Headings — override global h4 styles */
+.team-section .team-card h4 {
+  font-family: var(--ts-font-family);
+  font-size: var(--ts-heading-size);
+  font-weight: var(--ts-heading-weight);
+  line-height: var(--ts-line-height);
+  color: var(--ts-text);
+  margin: 4px 0;
+  font-style: normal;
+}
+
+/* Description paragraphs */
+.team-section .team-card p {
+  font-family: var(--ts-font-family);
+  font-size: var(--ts-body-size);
+  line-height: var(--ts-line-height);
+  color: var(--ts-accent);
+  margin: 0 0 8px;
+}
