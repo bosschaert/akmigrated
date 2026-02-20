@@ -1,0 +1,80 @@
+/* Hero Media Block */
+/* Design tokens extracted from source component */
+.hero-media {
+  --hero-media-gap: 32px;
+  --hero-media-border-radius: 8px;
+  --hero-media-video-width: 560px;
+  --hero-media-video-height: 315px;
+  --hero-media-image-width: 560px;
+  --hero-media-image-height: 420px;
+
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+.hero-media .hero-media-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hero-media-gap);
+  align-items: center;
+}
+
+.hero-media .hero-media-col {
+  flex: 0 0 auto;
+}
+
+/* Video wrapper with 16:9 aspect ratio */
+.hero-media .hero-media-video {
+  position: relative;
+  width: var(--hero-media-video-width);
+  height: var(--hero-media-video-height);
+  overflow: hidden;
+  border-radius: var(--hero-media-border-radius);
+  background-color: #000;
+}
+
+.hero-media .hero-media-video iframe,
+.hero-media .hero-media-video img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: var(--hero-media-border-radius);
+  object-fit: cover;
+}
+
+/* Image wrapper - allows natural aspect ratio */
+.hero-media .hero-media-image {
+  position: relative;
+  width: var(--hero-media-image-width);
+  overflow: hidden;
+  border-radius: var(--hero-media-border-radius);
+}
+
+.hero-media .hero-media-image picture {
+  display: block;
+  width: 100%;
+}
+
+.hero-media .hero-media-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--hero-media-border-radius);
+}
+
+/* Desktop layout: side by side */
+@media (width >= 900px) {
+  .hero-media .hero-media-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-media .hero-media-col {
+    flex: 0 0 auto;
+  }
+}

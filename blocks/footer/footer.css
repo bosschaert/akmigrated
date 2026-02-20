@@ -1,18 +1,36 @@
 footer {
+  /* Design tokens extracted from source */
+  --footer-text-color: rgb(119, 119, 119);
+  --footer-font-size: 15.2px;
+  --footer-padding: var(--spacing-l);
+  --footer-margin-top: var(--spacing-xl);
+
   a {
     text-decoration: none;
   }
 
   .footer-content {
     max-width: var(--grid-container-width);
-    margin: 48px auto;
-    font-size: 14px;
+    margin: var(--footer-margin-top) auto 0;
+    padding: var(--footer-padding);
+    font-size: var(--footer-font-size);
+    color: var(--footer-text-color);
+    text-align: center;
+  }
+
+  .section-copyright {
+    color: var(--footer-text-color);
+    font-size: var(--footer-font-size);
   }
 
   .section-legal ul {
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  .section-copyright {
+    text-align: center;
   }
 
   .section-copyright p {
@@ -31,15 +49,19 @@ footer {
   footer {
     margin: 0;
 
+    .footer-content {
+      text-align: center;
+    }
+
     .section-legal {
       display: flex;
-      justify-content: end;
+      justify-content: center;
       gap: var(--spacing-xl);
       margin-bottom: 24px;
 
       ul {
         display: flex;
-        justify-content: end;
+        justify-content: center;
         gap: var(--spacing-xl);
       }
 
@@ -50,7 +72,7 @@ footer {
 
     .section-copyright {
       display: flex;
-      justify-content: end;
+      justify-content: center;
       gap: var(--spacing-xl);
     }
   }

@@ -1,0 +1,122 @@
+/* Design tokens extracted from source */
+.tabs {
+  --tabs-bg: #f8f8f8;
+  --tabs-text: #333;
+  --tabs-description-color: #5e35b1;
+  --tabs-font-family: Poppins, "Segoe UI", system-ui, sans-serif;
+  --tabs-border-radius: 12px;
+  --tabs-padding: 16px;
+  --tabs-margin: 32px 0;
+  --tabs-active-border: #3498db;
+  --tabs-card-image-size: 120px;
+  --tabs-card-bg: #fff;
+  --tabs-card-border: #ddd;
+  --tabs-card-radius: 12px;
+
+  background: var(--tabs-bg);
+  border-radius: var(--tabs-border-radius);
+  padding: var(--tabs-padding);
+  margin: var(--tabs-margin);
+  font-family: var(--tabs-font-family);
+}
+
+/* Tab list / navigation */
+.tabs .tabs-list {
+  display: flex;
+  gap: 0;
+  border-bottom: none;
+  margin-bottom: 24px;
+  padding-left: 0;
+}
+
+.tabs .tabs-tab {
+  background: transparent;
+  border: none;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--tabs-text);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  font-family: inherit;
+}
+
+.tabs .tabs-tab:hover {
+  color: var(--tabs-active-border);
+}
+
+.tabs .tabs-tab[aria-selected="true"] {
+  color: var(--tabs-active-border);
+  border-bottom-color: var(--tabs-active-border);
+  font-weight: 400;
+}
+
+/* Tab panels */
+.tabs .tabs-panels {
+  padding: 8px 0;
+}
+
+.tabs .tabs-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.tabs .tabs-panel[hidden] {
+  display: none;
+}
+
+/* Team cards within tabs */
+.tabs .tabs-panel > div {
+  flex: 1;
+  min-width: 280px;
+  max-width: 560px;
+  background: var(--tabs-card-bg);
+  border: 1px dashed var(--tabs-card-border);
+  border-radius: var(--tabs-card-radius);
+  padding: 32px;
+  text-align: center;
+}
+
+.tabs .tabs-panel > div picture,
+.tabs .tabs-panel > div img {
+  width: var(--tabs-card-image-size);
+  height: var(--tabs-card-image-size);
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 16px;
+  display: block;
+}
+
+.tabs .tabs-panel > div h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--tabs-text);
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.tabs .tabs-panel > div p {
+  font-size: 18.4px;
+  line-height: 1.6;
+  color: var(--tabs-description-color);
+  margin: 0 0 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tabs .tabs-list {
+    flex-wrap: wrap;
+  }
+
+  .tabs .tabs-tab {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .tabs .tabs-panel > div {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}

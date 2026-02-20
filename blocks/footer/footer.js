@@ -17,11 +17,17 @@ export default async function init(el) {
 
     const sections = [...fragment.querySelectorAll('.section')];
 
-    const copyright = sections.pop();
-    copyright.classList.add('section-copyright');
+    // Handle copyright section (last section)
+    if (sections.length > 0) {
+      const copyright = sections.pop();
+      copyright.classList.add('section-copyright');
+    }
 
-    const legal = sections.pop();
-    legal.classList.add('section-legal');
+    // Handle legal section (second to last, if present)
+    if (sections.length > 0) {
+      const legal = sections.pop();
+      legal.classList.add('section-legal');
+    }
 
     el.append(fragment);
   } catch (e) {
