@@ -1,65 +1,57 @@
 /* Image Gallery Block */
 .image-gallery {
-  /* Design tokens extracted from source */
-  --image-gallery-bg: #f8e8f8;
-  --image-gallery-gap: 16px;
-  --image-gallery-border-radius: 8px;
-  --image-gallery-max-width: 1152px;
-  --image-gallery-padding: 18px;
-  --image-gallery-img-height: 297px;
-
-  max-width: var(--image-gallery-max-width);
-  margin: 0 auto;
-  padding: var(--image-gallery-padding);
-  background-color: var(--image-gallery-bg);
-  border-radius: var(--image-gallery-border-radius);
-  box-sizing: border-box;
+  --gallery-gap: 18px;
+  --gallery-border-radius: 8px;
+  --gallery-max-width: 1152px;
+  --gallery-bg: transparent;
 }
 
-.image-gallery > div {
+.image-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gallery-gap);
+  max-width: var(--gallery-max-width);
+  margin: 0 auto;
+  padding: 18px 0;
+  background: var(--gallery-bg);
+}
+
+.image-gallery .image-gallery-row {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--image-gallery-gap);
+  gap: var(--gallery-gap);
   justify-content: center;
-  align-items: stretch;
 }
 
-.image-gallery > div > div {
-  flex: 1 1 calc(50% - var(--image-gallery-gap) / 2);
+.image-gallery .image-gallery-item {
+  flex: 1 1 calc(50% - var(--gallery-gap) / 2);
   min-width: 280px;
   max-width: 528px;
 }
 
-.image-gallery picture {
+.image-gallery .image-gallery-item p {
+  margin: 0;
+}
+
+.image-gallery .image-gallery-item picture {
   display: block;
   width: 100%;
 }
 
-.image-gallery img {
+.image-gallery .image-gallery-image,
+.image-gallery .image-gallery-item img {
   width: 100%;
-  height: var(--image-gallery-img-height);
+  height: auto;
+  aspect-ratio: 560 / 315;
   object-fit: cover;
-  border-radius: var(--image-gallery-border-radius);
+  border-radius: var(--gallery-border-radius);
   display: block;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .image-gallery {
-    --image-gallery-img-height: auto;
-  }
-
-  .image-gallery > div {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .image-gallery > div > div {
+  .image-gallery .image-gallery-item {
     flex: 1 1 100%;
     max-width: 100%;
-  }
-
-  .image-gallery img {
-    aspect-ratio: 560 / 315;
   }
 }
