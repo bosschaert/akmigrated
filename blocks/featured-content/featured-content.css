@@ -1,95 +1,84 @@
 /* Featured Content Block
-   Two-column media layout with card styling on gradient background */
+ * Two-column media layout with gradient background and card styling
+ * Source: https://static-website.david-bosschaert.workers.dev/
+ */
 
 .featured-content {
-  --fc-gap: 24px;
-  --fc-card-bg: #fff;
+  --fc-bg-start: #dce8ff;
+  --fc-bg-mid: #e8dcff;
+  --fc-bg-end: #ffdcf0;
+  --fc-card-bg: #ffffff;
   --fc-card-radius: 8px;
-  --fc-padding: 24px 8px;
-  --fc-bg: linear-gradient(135deg, #dfe3f0 0%, #eee3f3 50%, #f5e0ea 100%);
+  --fc-gap: 12px;
+  --fc-padding: 20px;
 
-  display: grid;
-  gap: var(--fc-gap);
+  background: linear-gradient(135deg, var(--fc-bg-start) 0%, var(--fc-bg-mid) 50%, var(--fc-bg-end) 100%);
   padding: var(--fc-padding);
-  background: var(--fc-bg);
-  color: #333;
+  border-radius: 12px;
+  margin: 24px auto;
   max-width: 1200px;
-  margin: 24px 8px;
+  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
   box-sizing: border-box;
-
-  .row {
-    display: grid;
-    gap: var(--fc-gap);
-    align-items: stretch;
-  }
-
-  .col {
-    background: var(--fc-card-bg);
-    border-radius: var(--fc-card-radius);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 420px;
-
-    :first-child {
-      margin-top: 0;
-    }
-
-    :last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  .media-video {
-    padding: 24px;
-  }
-
-  .media-image {
-    padding: 0;
-
-    picture {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 0;
-    }
-  }
-
-  .iframe-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 560px;
-    aspect-ratio: 560 / 315;
-
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: var(--fc-card-radius);
-    }
-  }
-
-  img {
-    border-radius: var(--fc-card-radius);
-  }
+  color: #333;
 }
 
-@media (width >= 900px) {
-  .featured-content {
-    .row {
-      grid-template-columns: repeat(var(--child-count), 1fr);
-    }
-  }
+/* Row layout */
+.featured-content .featured-content-row {
+  display: flex;
+  gap: var(--fc-gap);
+  align-items: stretch;
+}
+
+/* Column base */
+.featured-content .featured-content-col {
+  flex: 1 1 50%;
+  background: var(--fc-card-bg);
+  border-radius: var(--fc-card-radius);
+  overflow: hidden;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Video column - narrower, matching source proportions (~42%) */
+.featured-content .featured-content-video-col {
+  flex: 0 1 42%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image column - wider (~58%) */
+.featured-content .featured-content-image-col {
+  flex: 1 1 58%;
+}
+
+/* Override youtube block's .video styling within our block */
+.featured-content .featured-content-video-col .video {
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.featured-content .featured-content-video-col p {
+  margin: 0;
+}
+
+/* Image column */
+.featured-content .featured-content-image-col {
+  padding: 6px;
+  display: flex;
+}
+
+.featured-content .featured-content-image-col picture {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.featured-content .featured-content-image-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--fc-card-radius);
+  display: block;
 }
