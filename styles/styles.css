@@ -1,77 +1,14 @@
-@font-face {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url("/styles/fonts/montserrat.woff2") format("woff2");
-  unicode-range:
-    U+0000-00FF,
-    U+0131,
-    U+0152-0153,
-    U+02BB-02BC,
-    U+02C6,
-    U+02DA,
-    U+02DC,
-    U+0304,
-    U+0308,
-    U+0329,
-    U+2000-206F,
-    U+20AC,
-    U+2122,
-    U+2191,
-    U+2193,
-    U+2212,
-    U+2215,
-    U+FEFF,
-    U+FFFD;
-}
-
-@font-face {
-  font-family: Montserrat;
-  font-style: italic;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url("/styles/fonts/montserrat-italic.woff2") format("woff2");
-  unicode-range:
-    U+0000-00FF,
-    U+0131,
-    U+0152-0153,
-    U+02BB-02BC,
-    U+02C6,
-    U+02DA,
-    U+02DC,
-    U+0304,
-    U+0308,
-    U+0329,
-    U+2000-206F,
-    U+20AC,
-    U+2122,
-    U+2191,
-    U+2193,
-    U+2212,
-    U+2215,
-    U+FEFF,
-    U+FFFD;
-}
-
 :root {
-  /* grid */
   --grid-container-width: 83.4%;
   --grid-column-width: calc(var(--grid-container-width) / 12);
   --grid-gutter-width: 8.3%;
-
-  /* spacing */
   --spacing-xxl: 48px;
   --spacing-xl: 32px;
   --spacing-l: 24px;
   --spacing-m: 12px;
   --spacing-s: 8px;
   --spacing-xs: 4px;
-
-  /* color schemes */
   color-scheme: light dark;
-
-  /* color tokens */
   --color-gray-100: #f1f1f1;
   --color-gray-200: #d3d3d3;
   --color-gray-300: #b5b5b5;
@@ -153,8 +90,6 @@
   --color-yellow-700: #514a00;
   --color-yellow-800: #373100;
   --color-yellow-900: #1e1b00;
-
-  /* named colors */
   --color-light-base: 255 255 255;
   --color-dark-base: 0 0 0;
   --color-light: rgb(255 255 255);
@@ -163,21 +98,16 @@
   --color-link: light-dark(var(--color-gray-900), var(--color-gray-100));
   --color-brand: var(--color-purple-500);
   --color-accent: light-dark(var(--color-magenta-600), var(--color-magenta-500));
+  --color-background: light-dark(var(--color-light), var(--color-dark));
   --color-shaded: light-dark(#f9f9f9, #111);
-
-  /* fonts */
   --font-family: montserrat, "Trebuchet MS", sans-serif;
-
-  /* headings */
-  --heading-font-size-xxl: 32.44px;
-  --heading-font-size-xl: 28.83px;
-  --heading-font-size-l: 25.63px;
-  --heading-font-size-m: 22.78px;
-  --heading-font-size-s: 20.25px;
-  --heading-font-size-xs: 18px;
+  --heading-font-size-xxl: 28.8px;
+  --heading-font-size-xl: 22.4px;
+  --heading-font-size-l: 18.72px;
+  --heading-font-size-m: 16px;
+  --heading-font-size-s: 13.28px;
+  --heading-font-size-xs: 10.72px;
   --heading-line-height: 1.15;
-
-  /* body */
   --body-font-size-xxxl: 25px;
   --body-font-size-xxl: 22px;
   --body-font-size-xl: 20px;
@@ -186,8 +116,6 @@
   --body-font-size-s: 14px;
   --body-font-size-xs: 12px;
   --body-line-height: 1.6;
-
-  /* misc */
   --header-height: 64px;
   --breadcrumb-height: 24px;
 }
@@ -206,23 +134,17 @@ html {
 
 body {
   margin: 0;
-  background-color: light-dark(var(--color-light), var(--color-dark));
+  background-color: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-family);
   font-size: var(--body-font-size-m);
   line-height: var(--body-line-height);
-  padding: var(--header-height) 0 0;
-
-  &.has-breadcrumb {
-    margin: calc(var(--header-height) + var(--breadcrumb-height)) 0 0;
-  }
-
-  &.no-header {
-    --header-height: 0;
-
-    margin: 0;
-  }
-}
+  padding: var(--header-height)0 0;
+  &.has-breadcrumb{margin: calc(var(--header-height) + var(--breadcrumb-height))0 0;
+}&.no-header {
+  --header-height: 0;
+  margin: 0;
+}}
 
 header {
   display: none;
@@ -232,84 +154,53 @@ header {
 
 a {
   color: var(--color-link);
-
-  &.btn {
-    display: inline-block;
-    line-height: 1;
-    font-weight: 500;
-    text-decoration: none;
-    border: 2px solid;
-    padding: 8px 12px;
-    box-sizing: border-box;
-
-    &.btn-outline {
-      background: transparent;
-    }
-  }
-
-  &.btn-accent {
-    color: #fff;
-    background: var(--color-accent);
-    border: 2px solid var(--color-accent);
-
-    &.btn-outline {
-      color: var(--color-accent);
-    }
-  }
-
-  &.btn-primary {
-    color: light-dark(var(--color-light), var(--color-dark));
-    background-color: light-dark(var(--color-dark), var(--color-light));
-
-    &.btn-outline {
-      color: light-dark(var(--color-dark), var(--color-light));
-      background: transparent;
-    }
-  }
-
-  &.btn-secondary {
-    color: light-dark(var(--color-light), var(--color-dark));
-    background-color: var(--color-gray-500);
-    border: 2px solid var(--color-gray-500);
-
-    &.btn-outline {
-      color: var(--color-gray-500);
-    }
-  }
-
-  &.btn-negative {
-    color: #fff;
-    background-color: var(--color-red-600);
-    border: 2px solid var(--color-red-600);
-
-    &.btn-outline {
-      color: var(--color-red-600);
-    }
-  }
-}
-
-/* sections */
-.section {
+  &.btn{display: inline-block;
+  line-height: 1;
+  font-weight: 500;
+  text-decoration: none;
+  border: 2px solid;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  &.btn-outline{background: transparent;
+}}&.btn-accent {
+  color: #fff;
+  background: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  &.btn-outline{color: var(--color-accent);
+}}&.btn-primary {
+  color: var(--color-background);
+  background-color: var(--color-text);
+  &.btn-outline{color: var(--color-text);
+  background: transparent;
+}}&.btn-secondary {
+  color: var(--color-background);
+  background-color: var(--color-gray-500);
+  border: 2px solid var(--color-gray-500);
+  &.btn-outline{color: var(--color-gray-500);
+}}&.btn-negative {
+  color: #fff;
+  background-color: var(--color-red-600);
+  border: 2px solid var(--color-red-600);
+  &.btn-outline{color: var(--color-red-600);
+}}}
+/* sections */.section {
   display: block;
-
   > .default-content {
     max-width: var(--grid-container-width);
-    margin: 0 auto;
-  }
-}
+  margin: 0 auto;
+}}
 
 main {
   ul,
   ol {
     padding-inline-start: 24px;
-
-    /* Reduce nested lists even further */
-    ul,
+    
+/* Reduce nested lists even further */
+  ul,
     ol {
       padding-inline-start: 12px;
-    }
-  }
 }
+  }}
 
 button {
   cursor: pointer;
@@ -319,31 +210,40 @@ li {
   margin-block: 1em;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6 {
   font-weight: 600;
   line-height: var(--heading-line-height);
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+h1 {
+  font-size: var(--heading-font-size-xxl);
+}
+
+h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+h3 {
+  font-size: var(--heading-font-size-l);
+}
+
+h4 {
+  font-size: var(--heading-font-size-m);
+}
+
+h5 {
+  font-size: var(--heading-font-size-s);
+}
+
+h6 {
+  font-size: var(--heading-font-size-xs);
+}
 
 strong {
   font-weight: 600;
 }
 
-input,
-textarea,
-select,
-button {
+input,textarea,select,button {
   font: inherit;
 }
 
@@ -356,29 +256,19 @@ svg {
   width: 20px;
   height: 20px;
 }
-
 /* @media (width >= 600px) {} */
-
 /* @media (width >= 900px) {} */
-
-/* @media (width >= 1200px) {} */
-
-@media (width >= 1440px) {
+/* @media (width >= 1200px) {} */@media (width>=1440px) {
   :root {
     --grid-container-width: 1200px;
   }
 }
 
-main > div,
-.has-template,
-div[data-status] {
+main>div,.has-template,div[data-status] {
   display: none;
 }
 
 aem-sidekick {
   opacity: 0;
-
-  &[open="true"].is-ready {
-    opacity: 1;
-  }
-}
+  &[open="true"].is-ready{opacity: 1;
+}}
